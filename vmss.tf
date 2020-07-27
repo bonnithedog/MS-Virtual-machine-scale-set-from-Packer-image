@@ -1,6 +1,12 @@
 #File vmss.tf
 #https://docs.microsoft.com/en-us/azure/developer/terraform/create-vm-scaleset-network-disks-using-packer-hcl
 
+#Added provider customized to use with Terraform Cloud
+provider "azurerm" {
+version = "=2.0.0"
+features {}
+}
+
 resource "azurerm_resource_group" "vmss" {
   name     = var.resource_group_name
   location = var.location
